@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>kantin mamasila - perut kenyang kantong aman</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f7f1e3, #fad4c0);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      color: #d35400;
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 4px #b34800;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #6e2c00;
+      letter-spacing: 1px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+
+    .product-card {
+      background: #fff3e0;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(212, 84, 18, 0.25);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(212, 84, 18, 0.4);
+    }
+
+    .product-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 4px solid #d35400;
+    }
+
+    .product-content {
+      padding: 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #ba4a00;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .product-desc {
+      font-weight: 300;
+      color: #6e2c00;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      flex-grow: 1;
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #d35400;
+      margin-bottom: 12px;
+    }
+
+    .order-button {
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      user-select: none;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .order-button:hover {
+      background-color: #ba4a00;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #9e7e60;
+    }
+
+    /* Responsive text scaling */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .product-title {
+        font-size: 1.3rem;
+      }
+      .product-price {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>kantin mama sila</h1>
+    <p>Jajan Enak, Harga Bersahabat!</p>
+  </header>
+
+  <main class="product-grid">
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572379787574-89e1aeb9c76e?auto=format&fit=crop&w=500&q=80');" aria-label="Boci"></div>
+      <div class="product-content">
+        <h2 class="product-title">Boci</h2>
+        <p class="product-desc">Kue basah manis dengan isi kelapa dan gula merah yang legit.</p>
+        <div class="product-price">Rp 8.000</div>
+        <button class="order-button" onclick="orderFood('Boci')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=500&q=80');" aria-label="Chicken Teriyaki"></div>
+      <div class="product-content">
+        <h2 class="product-title">Chicken Teriyaki</h2>
+        <p class="product-desc">Ayam panggang dengan saus teriyaki manis gurih segar.</p>
+        <div class="product-price">Rp 8.000</div>
+        <button class="order-button" onclick="orderFood('Chicken Teriyaki')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1613145996111-dedc939a0f72?auto=format&fit=crop&w=500&q=80');" aria-label="Siomay"></div>
+      <div class="product-content">
+        <h2 class="product-title">Siomay</h2>
+        <p class="product-desc">Siomay ikan tenggiri dengan saus kacang khas Bandung.</p>
+        <div class="product-price">Rp 1.000</div>
+        <button class="order-button" onclick="orderFood('Siomay')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1606755965437-6ee9d1d8553e?auto=format&fit=crop&w=500&q=80');" aria-label="Mie Jebew"></div>
+      <div class="product-content">
+        <h2 class="product-title">Mie Jebew</h2>
+        <p class="product-desc">Mie goreng pedas lezat dan maknyus, favorit banyak orang.</p>
+        <div class="product-price">Rp 8.000</div>
+        <button class="order-button" onclick="orderFood('Mie Jebew')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1590080877777-f83126ef373a?auto=format&fit=crop&w=500&q=80');" aria-label="Ayam Teriyaki"></div>
+      <div class="product-content">
+        <h2 class="product-title">Ayam Teriyaki</h2>
+        <p class="product-desc">Potongan ayam dengan saus teriyaki nikmat dan berempah.</p>
+        <div class="product-price">Rp 8.000</div>
+        <button class="order-button" onclick="orderFood('Ayam Teriyaki')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1572213099755-8187a2f8b003?auto=format&fit=crop&w=500&q=80');" aria-label="Ayam Pedas"></div>
+      <div class="product-content">
+        <h2 class="product-title">Ayam Pedas</h2>
+        <p class="product-desc">Ayam goreng berbumbu pedas menggugah selera.</p>
+        <div class="product-price">Rp 8.000</div>
+        <button class="order-button" onclick="orderFood('Ayam Pedas')">Order Now</button>
+      </div>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1543351611-9dc04b4d3cbb?auto=format&fit=crop&w=500&q=80');" aria-label="Nasi"></div>
+      <div class="product-content">
+        <h2 class="product-title">Nasi</h2>
+        <p class="product-desc">Nasi putih pulen hangat sebagai pendamping lauk pilihanmu.</p>
+        <div class="product-price">Rp 5.000</div>
+        <button class="order-button" onclick="orderFood('Nasi')">Order Now</button>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2024 kantin mama sila. All rights reserved.
+  </footer>
+
+  <script>
+    function orderFood(foodName) {
+      alert(`Terima kasih sudah memesan ${foodName}! Kami akan segera menghubungi Anda.`);
+    }
+  </script>
+</body>
+</html>
+
